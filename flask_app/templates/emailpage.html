@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Emails</title>
+</head>
+<body>
+    <table width="400" border="1">
+        <tr>
+            <th>EMAILS</th>
+            <th>Created At</th>
+        </tr>
+        {% for e in result%}
+        <tr>
+            <td>{{e.email}}</td>
+            <td>{{e.created_at}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p> 
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
